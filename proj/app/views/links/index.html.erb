@@ -1,5 +1,6 @@
 <h1>Links</h1>
-
+<ul>
 <% @links.each do |link| %>
-	<%= link_to link.title, link_path(link) %> by <%= link.user.email %>
+	<li><%= link_to link.title, link_path(link) %> by <%= link.user.email %></li>
 <% end %>
+</ul>

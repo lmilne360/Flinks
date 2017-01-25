@@ -1,4 +1,7 @@
 class Link < ApplicationRecord
-	belongs_to :user
 	validates_presence_of :title, :url
+	belongs_to :user
+	has_many :comments
+
+	
 end

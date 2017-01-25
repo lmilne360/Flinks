@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :links
   devise_for :users, skip: [:sessions]
   root 'welcome#main'

@@ -1,0 +1,5 @@
+<h1><%= @user.email %></h1>
+
+<% @user.links.each do |link| %>
+	<%= link_to link.title, link_path(link) %>
+<% end %>

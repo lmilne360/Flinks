@@ -5,17 +5,16 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :comments
-  resources :users, only: [:show]
-
-
-
   devise_for :users, skip: [:sessions]
   	as :user do 
   		get 'login' => 'devise/sessions#new', as: :new_user_session
   		post 'login' => 'devise/sessions#create', as: :user_session
   		delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   	end
+    
+  resources :comments
+  resources :users, only: [:show]
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

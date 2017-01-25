@@ -1,4 +1,5 @@
 <%= @link.title %> <br>
+tags: <%= @link.try(:all_tags) %> <br>
 
 Comments: <%= @link.comments.size %> <br>
 <% @link.comments.each do |comment| %>

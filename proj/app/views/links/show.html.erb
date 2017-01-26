@@ -2,8 +2,9 @@
 tags: <%= @link.try(:all_tags) %> <br>
 
 <%= @link.comments.size %> Comments <br>
+
 <% @link.comments.each do |comment| %>
-	<%= comment.body %> by <%= comment.user.username %> <br>
+	<%= comment.body %> by <%= comment.commenter %> <br>
 <% end %>
 
 

@@ -14,4 +14,16 @@ class Link < ApplicationRecord
 	def all_tags
 		self.tags.map{|t| t.name}.join(", ")
 	end
+
+	def owner
+		self.user.username
+	end
+
+	def self.search(term)
+  		if term
+    		Tag.find_by_name!(term).links
+  		else
+    		self.all
+  		end
+	end
 end

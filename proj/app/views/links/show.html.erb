@@ -1,9 +1,15 @@
-<%= @link.title %> <br>
+<%= @link.title %> 
+
+<% if @link.user == current_user %>
+<%= link_to 'Edit', edit_link_path(@link) %>
+<% end %><br>
+
 tags: <%= @link.try(:all_tags) %> <br>
 
-Comments: <%= @link.comments.size %> <br>
+<%= @link.comments.size %> Comments <br>
+
 <% @link.comments.each do |comment| %>
-	<%= comment.body %> by <%= comment.user.email %> <br>
+	<%= comment.body %> by <%= comment.commenter %> <br>
 <% end %>
 
 

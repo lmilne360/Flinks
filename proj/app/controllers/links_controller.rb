@@ -2,11 +2,10 @@ class LinksController < ApplicationController
 	before_action :set_link, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@links = Link.all
+		@links = Link.search(params[:term])
 	end
 
-	def show
-		
+	def show	
 	end
 
 	def new
@@ -27,8 +26,12 @@ class LinksController < ApplicationController
 	end
 
 	def update
-		@link.update(link_params)
-		redirect_to links_path
+		if current_user == @link.user
+			@link.update(link_params)
+			redirect_to links_path
+		else
+			redirect_to links_path, alert: "You're not authorized to edit this lin!"
+		end
 	end
 
 	def destroy
@@ -39,7 +42,7 @@ class LinksController < ApplicationController
 	private
 
 		def link_params
-			params.require(:link).permit(:user_id, :title, :url, :all_tags)
+			params.require(:link).permit(:user_id, :title, :url, :all_tags, :term)
 		end
 
 		def set_link

@@ -1,6 +1,6 @@
 <h1><%= @user.try(:username) %></h1> 
-<%= link_to "edit account", edit_user_registration_path(@user) %>
 
-<% @user.links.each do |link| %>
-	<%= link_to link.title, link_path(link) %>
+
+<% @links.each do |link| %>
+	<%= link_to link.title, link_path(link) %> <br>
 <% end %>

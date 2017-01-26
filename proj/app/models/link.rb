@@ -21,9 +21,9 @@ class Link < ApplicationRecord
 
 	def self.search(term)
   		if term
-    		Tag.find_by_name!(term).links
+    		Tag.find_by_name!(term).links.sort_by{|l| l.id}.reverse
   		else
-    		self.all
+    		self.order('id DESC') 
   		end
 	end
 end

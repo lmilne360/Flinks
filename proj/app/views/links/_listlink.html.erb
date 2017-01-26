@@ -1,4 +1,5 @@
-<%= link.title %> <br>
-Submitted by <%= link.user.username %>
+<%= link_to link.title, link_path(link) %> <br>
+Submitted by <%= link.user.username %> <br>
+<%= link_to "Visit URL", link.url, target: "_blank" %>
 
 

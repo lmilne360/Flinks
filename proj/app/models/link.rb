@@ -18,4 +18,12 @@ class Link < ApplicationRecord
 	def owner
 		self.user.username
 	end
+
+	def self.search(term)
+  		if term
+    		Tag.find_by_name!(term).links
+  		else
+    		self.all
+  		end
+	end
 end

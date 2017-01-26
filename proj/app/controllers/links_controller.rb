@@ -2,11 +2,10 @@ class LinksController < ApplicationController
 	before_action :set_link, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@links = Link.all
+		@links = Link.search(params[:term])
 	end
 
-	def show
-		
+	def show	
 	end
 
 	def new
@@ -43,7 +42,7 @@ class LinksController < ApplicationController
 	private
 
 		def link_params
-			params.require(:link).permit(:user_id, :title, :url, :all_tags)
+			params.require(:link).permit(:user_id, :title, :url, :all_tags, :term)
 		end
 
 		def set_link

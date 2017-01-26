@@ -5,13 +5,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  devise_for :users, skip: [:sessions]
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, skip: [:sessions]
   	as :user do 
   		get 'login' => 'devise/sessions#new', as: :new_user_session
   		post 'login' => 'devise/sessions#create', as: :user_session
   		delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   	end
-    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+    #devise_for :users, 
     
   resources :comments
   resources :users, only: [:show]

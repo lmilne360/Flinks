@@ -27,8 +27,12 @@ class LinksController < ApplicationController
 	end
 
 	def update
-		@link.update(link_params)
-		redirect_to links_path
+		if current_user == @link.user
+			@link.update(link_params)
+			redirect_to links_path
+		else
+			redirect_to links_path, alert: "You're not authorized to edit this lin!"
+		end
 	end
 
 	def destroy

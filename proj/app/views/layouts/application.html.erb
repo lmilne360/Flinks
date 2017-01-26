@@ -9,8 +9,11 @@
   </head>
 
   <body>
-  <%= render 'layouts/header' %>
 
+    <header>
+        <div id="projname"><%= link_to "Rails Project", root_path %></div>
+        <%= render 'layouts/header' %>
+    </header>
 	<div class="notifications">	
 		<p class="notice"><%= notice %></p>
 	    <p class="alert"><%= alert %></p>

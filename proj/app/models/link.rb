@@ -20,7 +20,8 @@ class Link < ApplicationRecord
 	end
 
 	def self.search(term)
-  		if term
+  		if !term.blank?
+  			binding.pry
     		Tag.find_by_name!(term).links
   		else
     		self.all

@@ -20,10 +20,11 @@ class Link < ApplicationRecord
 	end
 
 	def self.search(term)
-  		if !term.blank?
-    		Tag.find_by_name!(term).links
-  		else
+		links = Tag.find_by_name(term).try(:links)
+  		if links.nil? || links.empty?
     		self.order('id DESC') 
+    	else
+    		links
   		end
 	end
 end

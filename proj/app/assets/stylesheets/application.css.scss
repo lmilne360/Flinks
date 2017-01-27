@@ -17,10 +17,13 @@
   @import "bootstrap";
 
   #main_content {
+  	small {font-size: 60%}
 	#content {
 		float: none;
 	}
 	padding-bottom: 100px;
+
+	.link_title {color: #337ab7;}
 	.link {
 		padding: 2em 1em;
 		border-bottom: 1px solid #e9e9e9;

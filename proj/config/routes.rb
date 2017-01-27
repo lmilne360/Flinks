@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'links#index'
   
   resources :links do 
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, skip: [:sessions]

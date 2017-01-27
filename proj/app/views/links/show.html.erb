@@ -1,4 +1,6 @@
-<%= @link.title%> 
+<div class="link_title">
+<h2><%= @link.title%><h2>
+</div>
 
 <% if @link.user == current_user %>
 <%= link_to 'Edit', edit_link_path(@link) %>
@@ -9,9 +11,7 @@ tags: <%= @link.try(:all_tags) %> <br>
 <%= @link.comments.size %> Comments <br>
 <div id="comments">
 <% @link.comments.each do |comment| %>
-	<div class="comment">
-		<p class="lead"><%= comment.body%> <small>by <%= link_to comment.commenter, user_path(comment.user) %></small></p>
-	</div>
+	<%= render comment %>
 <% end %>
 </div>
 

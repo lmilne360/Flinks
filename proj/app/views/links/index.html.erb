@@ -1,15 +1,5 @@
-<h1>Links</h1>
-
-<div class="search">
-  <%= form_tag(links_path, method: :get) do %>
-    <%= text_field_tag :term, params[:term], placeholder: "Search by tag..." %>
-    <%= submit_tag 'Search' %>
-  <% end %>
-
-</div>
-
 <% @links.each do |link| %>
-	<div class="link index">
+	<div class="link row clearfix">
 		<%= render 'listlink', link: link %>
 	</div>
 <% end %>

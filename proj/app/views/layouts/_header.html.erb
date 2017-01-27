@@ -1,12 +1,39 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+ <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> <!-- This toggles link elements into a dropdown button --> 
+	<div class="navbar-brand"><%= link_to "Rails Proj", root_path %></div>	 
+		<div  class="collapse navbar-collapse" id="navbarNavDropdown">
+		  <div class="nav navbar-nav pull-xs-right">
+			<% if user_signed_in? %>
+		
+				<%= link_to "Submit Link", new_link_path, class:"nav-item nav-link" %>
+				<%= link_to current_user.username, user_path(current_user), class:"nav-item nav-link"%>
+				<%= link_to "Edit account", edit_user_registration_path(@user), class:"nav-item nav-link" %>
+				<%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-item nav-link" %>
 
-<div id="user_nav">
-<% if user_signed_in? %>
-<%= link_to "Submit Link", new_link_path %>
-<%= link_to current_user.username, user_path(current_user)%>
-<%= link_to "edit account", edit_user_registration_path(@user) %>
-<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 
-<% else %>
-	<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Log In", new_user_session_path %>
-<% end %>
+			<% else %>
+				<%= link_to "Log In", new_user_session_path, class:"nav-item nav-link" %>
+
+			<% end %>
+			</div>
+		</div>
+		<div class="form-inline ">
+
+			<%= form_tag(links_path, method: :get, class:"input-group" ) do %>
+			<%= text_field_tag :term, params[:term], placeholder: "Search by tag...", class:"form-control" %>
+			<button class="btn btn-secondary" type="submit">Search</button>
+			<% end %>
+
+		</div>
+			
+</nav>
+ 
+<!-- <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %> 
+<div class="input-group">
+  <span class="input-group-addon">$</span>
+  <span class="input-group-addon">0.00</span>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
 </div>
+-->

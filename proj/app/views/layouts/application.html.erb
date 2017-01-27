@@ -11,14 +11,20 @@
   <body>
 
     <header>
-        <div id="projname"><%= link_to "Rails Project", root_path %></div>
         <%= render 'layouts/header' %>
     </header>
+
 	<div class="notifications">	
 		<p class="notice"><%= notice %></p>
 	    <p class="alert"><%= alert %></p>
 	</div>
-    
+  
+ <div id="main_content" class= "container">
+  <div id="content" class="col-md-9 center-block">
     <%= yield %>
+  </div>
+ </div>
+    
+    
   </body>
 </html>

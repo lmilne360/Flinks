@@ -1,4 +1,4 @@
-<%= link_to link.title, link_path(link) %> <br>
+<h2><%= link_to link.title, link_path(link) %></h2> 
 <small>Submitted by <%= link_to link.owner, user_path(link.user) %> </small> <br>
 <%= link_to "Visit URL", link.url, target: "_blank" %>
 

@@ -20,14 +20,8 @@ class Link < ApplicationRecord
 	end
 
 	def self.search(term)
-<<<<<<< HEAD
-  		if term
-    		Tag.find_by_name!(term).links.sort_by{|l| l.id}.reverse
-=======
   		if !term.blank?
-  			binding.pry
     		Tag.find_by_name!(term).links
->>>>>>> touchups
   		else
     		self.order('id DESC') 
   		end

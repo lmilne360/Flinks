@@ -1,0 +1,8 @@
+      <% if flash.any? %>
+      	<% if !flash.notice.blank? %>
+      		<p class="alert alert-success"><%= notice %></p>
+      	<% end %>
+      	<% if !flash.alert.blank? %>
+      		<p class="alert alert-danger"><%= alert %></p>
+      	<% end %>
+      <% end %>

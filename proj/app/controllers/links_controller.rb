@@ -13,12 +13,15 @@ class LinksController < ApplicationController
 	end
 
 	def create
-			link = Link.new(link_params)
-			link.user = current_user
-		if link.save
-			redirect_to links_path
+		@link = Link.new(link_params)
+		@link.user = current_user
+			
+		if @link.valid?
+			@link.save
+			redirect_to links_path, notice: "Success!"
 		else
-			render :new 
+			flash.now[:alert]= @link.errors.full_messages.to_sentence 
+			render :new
 		end
 	end
 
@@ -30,7 +33,7 @@ class LinksController < ApplicationController
 			@link.update(link_params)
 			redirect_to links_path
 		else
-			redirect_to links_path, alert: "You're not authorized to edit this lin!"
+			redirect_to links_path, alert: "You are not authorized to edit this link"
 		end
 	end
 

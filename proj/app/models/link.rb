@@ -4,6 +4,7 @@ class Link < ApplicationRecord
 	has_many :comments
 	has_many :linktags
 	has_many :tags, through: :linktags
+	acts_as_votable
 
 	def all_tags=(names)
 		self.tags = names.split(",").map do |name|

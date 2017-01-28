@@ -26,11 +26,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'acts_as_votable'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
-gem "pundit"
+#gem "pundit"
 gem 'omniauth-facebook'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'bootstrap', '~> 4.0.0.alpha6'

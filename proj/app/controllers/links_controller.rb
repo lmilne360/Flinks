@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-	before_action :set_link, only: [:show, :edit, :update, :destroy]
+	before_action :set_link, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
 	def index
 		@links = Link.search(params[:term])
@@ -40,6 +40,16 @@ class LinksController < ApplicationController
 	def destroy
 		@link.destroy
 		redirect_to links_path
+	end
+
+	def upvote
+		@link.upvote_by current_user
+  		redirect_to @link
+	end
+
+	def downvote
+		@link.downvote_by current_user
+  		redirect_to @link
 	end
 
 	private

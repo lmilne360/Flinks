@@ -44,12 +44,12 @@ class LinksController < ApplicationController
 
 	def upvote
 		@link.upvote_by current_user
-  		redirect_to @link
+  		redirect_to :back
 	end
 
 	def downvote
 		@link.downvote_by current_user
-  		redirect_to @link
+  		redirect_to :back
 	end
 
 	private

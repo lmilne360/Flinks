@@ -37,8 +37,8 @@ class LinksController < ApplicationController
 	end
 
 	def destroy
-		@link.destroy
-		redirect_to links_path
+		@link.destroy if @link.user == current_user
+		redirect_to links_path, notice: "Deleted"
 	end
 
 	def upvote

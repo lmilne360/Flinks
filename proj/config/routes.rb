@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :links, except: [:index, :show]
   end
-  
+
   resources :links, only: [:index, :show] do
     member do
       put "like",    to: "links#upvote"

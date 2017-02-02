@@ -3,7 +3,9 @@
 </div>
 
 <% if @link.user == current_user %>
-<%= link_to 'Edit', edit_user_link_path(@link) %>
+<%= link_to "Visit URL", @link.url, target: "_blank", class: "btn btn-secondary btn-sm"%>
+<%= link_to 'Edit', edit_user_link_path(@link), class: "btn btn-secondary btn-sm" %>
+<%= link_to 'Delete',user_link_path(@link), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary btn-sm" %>
 <% end %><br>
 
 tags: <%= render "linktags", link: @link %> <br>

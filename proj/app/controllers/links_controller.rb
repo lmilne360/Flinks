@@ -5,22 +5,21 @@ class LinksController < ApplicationController
 		@links = Link.search(params[:term])
 	end
 
-	def show	
+	def show
 	end
 
 	def new
-		@link = Link.new
+		@link = current_user.links.build
 	end
 
 	def create
-		@link = Link.new(link_params)
-		@link.user = current_user
-			
+
+		@link = current_user.links.build(link_params)
 		if @link.valid?
 			@link.save
 			redirect_to links_path, notice: "Success!"
 		else
-			flash.now[:alert]= @link.errors.full_messages.to_sentence 
+			flash.now[:alert]= @link.errors.full_messages.to_sentence
 			render :new
 		end
 	end
@@ -31,7 +30,7 @@ class LinksController < ApplicationController
 	def update
 		if current_user == @link.user
 			@link.update(link_params)
-			redirect_to links_path
+			redirect_to links_path, notice: "Updated"
 		else
 			redirect_to links_path, alert: "You are not authorized to edit this link"
 		end

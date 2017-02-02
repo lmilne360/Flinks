@@ -3,7 +3,7 @@
 </div>
 
 <% if @link.user == current_user %>
-<%= link_to 'Edit', edit_link_path(@link) %>
+<%= link_to 'Edit', edit_user_link_path(@link) %>
 <% end %><br>
 
 tags: <%= render "linktags", link: @link %> <br>
@@ -18,5 +18,5 @@ tags: <%= render "linktags", link: @link %> <br>
 <%= form_for @link.comments.build do |f| %>
 	<%= f.hidden_field :link_id %>
 	<%= f.text_area :body %> <br>
-	<%= f.submit "Add Comment", class: "btn btn-secondary"%>	
+	<%= f.submit "Add Comment", class: "btn btn-secondary"%>
 <% end %>

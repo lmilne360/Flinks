@@ -1,15 +1,16 @@
 <h2>
-<%= link_to link.title, link_path(link), class: "link_title"%><br>
-<small>Submitted by <%= link_to link.owner, user_path(link.user) %></small> <br> 
+	<%= link_to link.title, link_path(link), class: "link_title"%><br>
+	<small>Submitted by
+		<%= link_to link.owner, user_path(link.user) %></small>
+	<br>
 
-<%= link_to "Visit URL", link.url, target: "_blank", class: "btn btn-secondary btn-sm"%> 
-<%= link_to like_link_path(link), class: "btn btn-secondary btn-sm", method: :put do %>
-	Upvote <%= link.get_upvotes.size %>
-<% end %>
-<%= link_to dislike_link_path(link), class: "btn btn-secondary btn-sm", method: :put do %>
-	Upvote <%= link.get_downvotes.size %>
-<% end %>
+	<%= link_to "Visit URL", link.url, target: "_blank", class: "btn btn-secondary btn-sm"%>
+	<%= link_to like_link_path(link), class: "btn btn-secondary btn-sm", method: :put do %>
+	Upvote
+	<%= link.get_upvotes.size %>
+	<% end %>
+	<%= link_to dislike_link_path(link), class: "btn btn-secondary btn-sm", method: :put do %>
+	Upvote
+	<%= link.get_downvotes.size %>
+	<% end %>
 </h2>
-
-
-

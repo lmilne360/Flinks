@@ -1,3 +1,3 @@
 <% link.tags.map do |t| %>
-	<%= link_to t.name, links_path(term: t.name) %>
+<%= link_to t.name, links_path(term: t.name) %>
 <% end.join(", ") %>

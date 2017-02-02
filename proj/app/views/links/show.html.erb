@@ -1,24 +1,29 @@
 <div class="link_title">
-<h2><%= @link.title%><h2>
-</div>
+	<h2><%= @link.title%>
+		<h2></div>
 
-<% if @link.user == current_user %>
-<%= link_to "Visit URL", @link.url, target: "_blank", class: "btn btn-secondary btn-sm"%>
-<%= link_to 'Edit', edit_user_link_path(@link), class: "btn btn-secondary btn-sm" %>
-<%= link_to 'Delete',user_link_path(@link), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary btn-sm" %>
-<% end %><br>
+		<% if @link.user == current_user %>
+		<%= link_to "Visit URL", @link.url, target: "_blank", class: "btn btn-secondary btn-sm"%>
+		<%= link_to 'Edit', edit_user_link_path(@link), class: "btn btn-secondary btn-sm" %>
+		<%= link_to 'Delete',user_link_path(@link), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary btn-sm" %>
+		<% end %><br>
 
-tags: <%= render "linktags", link: @link %> <br>
+		tags:
+		<%= render "linktags", link: @link %>
+		<br>
 
-<%= @link.comments.size %> Comments <br>
-<div id="comments">
-<% @link.comments.each do |comment| %>
-	<%= render comment %>
-<% end %>
-</div>
+		<%= @link.comments.size %>
+		Comments
+		<br>
+		<div id="comments">
+			<% @link.comments.each do |comment| %>
+			<%= render comment %>
+			<% end %>
+		</div>
 
-<%= form_for @link.comments.build do |f| %>
-	<%= f.hidden_field :link_id %>
-	<%= f.text_area :body %> <br>
-	<%= f.submit "Add Comment", class: "btn btn-secondary"%>
-<% end %>
+		<%= form_for @link.comments.build do |f| %>
+		<%= f.hidden_field :link_id %>
+		<%= f.text_area :body %>
+		<br>
+		<%= f.submit "Add Comment", class: "btn btn-secondary"%>
+		<% end %>

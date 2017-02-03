@@ -59,5 +59,7 @@ class LinksController < ApplicationController
 
 		def set_link
 			@link = Link.find(params[:id])
+		  rescue ActiveRecord::RecordNotFound
+			redirect_to root_url, alert: "Record not found." 
 		end
 end

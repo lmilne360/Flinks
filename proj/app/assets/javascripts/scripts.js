@@ -1,0 +1,9 @@
+$(function() {
+
+    addComment();
+});
+
+
+function addComment() {
+
+}

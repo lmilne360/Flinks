@@ -1,8 +1,34 @@
 # README
 
-This project, RPL (pronounced ripple) was written and designed using the Rails 5 framework and bootstrap 4. 
-Make sure to run bundle update before running  rake all migrations
-After starting the server (rails s), the user can head to the home page to view and follow links. It is also possible to filter links by tags bye typing the tag in the search bar. In order to post a link, user must sign-up/ sign-in. A user can create a new account by inputting their credentials or can sign in via facebook by selecting that option on the login page.
-After valid authentication, it is then possible to post links, leave comments, upvote links, as well as edit their own links
 
+## About
 
+This project, RPL, was written and designed using the Rails 5 framework and bootstrap 4. 
+
+Users are able to view links posted by themselves and other users
+
+Users are required to be logged  in order to perform additional task;
+  * User can create a new account on the signup page or be authenticated via facebook
+  * If account was manually creater, user can edit account details by clicking on `Edit Account`
+
+Users are then able to comment and/or vote on a submitted link.
+
+Upon creating a link, a user is able to add tags to said link
+
+Users are also able to follow the url of a link, edit or delete links owned by themselves.
+
+This project contains a search feature which enable users to filter links based on an inputed tag. If no such tag is found, all links will be displayed.
+
+## Installation
+Make sure to run bundle update before running.
+
+ ` bundle install`
+ 
+ Migrate the database
+ 
+ `rake db:migrate`
+ 
+ Start the rails server
+ 
+ `rails s`
+  

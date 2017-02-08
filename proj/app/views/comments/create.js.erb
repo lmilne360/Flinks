@@ -1,5 +1,9 @@
 $('#comments').append("<%= j render @comment %>");
 
+var size = parseInt($('#comment-size').html());
+size ++;
+$('#comment-size').html(size);
+
 $('#new_comment input[type=submit]').attr('disabled', false);
 
 $('#comment_body').val('')

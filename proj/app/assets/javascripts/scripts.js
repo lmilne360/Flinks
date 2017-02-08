@@ -1,6 +1,7 @@
 $(function() {
 
     addComment();
+    toggleComments();
 });
 
 
@@ -10,4 +11,11 @@ function addComment() {
         var values = $(this).serialize();
         var posting = $.post("/comments.js", values);
     });
+}
+
+function toggleComments() {
+  $(document).on("click",'#comments-toggle', function(e){
+    e.preventDefault();
+    $("#comments").fadeToggle("slow");
+  });
 }

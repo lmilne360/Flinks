@@ -12,7 +12,7 @@
 		<%= render "linktags", link: @link %>
 		<br>
 
-		<%= @link.comments.size %>
+		<span id="comment-size"><%=  @link.comments.size %></span>
 		<span id="comments-toggle">Comments</span>
 		<br>
 		<div id="comments">

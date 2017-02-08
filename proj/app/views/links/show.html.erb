@@ -1,6 +1,6 @@
 <div class="link_title">
-	<h2><%= @link.title%>
-		<h2></div>
+	<h2><%= @link.title%><h2>
+</div>
 
 		<% if @link.user == current_user %>
 		<%= link_to "Visit URL", @link.url, target: "_blank", class: "btn btn-secondary btn-sm"%>

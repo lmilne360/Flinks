@@ -5,13 +5,9 @@ $(function() {
 
 
 function addComment() {
-  $('#new_comment').submit(function(e){
+  $(document).on("submit",'#new_comment', function(e){
     e.preventDefault();
     var values = $(this).serialize();
-    var path = $(this).attr('action') + '.js';
-    var posting = $.post(path, values);
-    posting.done(function(data) {
-      //debugger
-    });
+    var posting = $.post("/comments.js", values);
   });
 }

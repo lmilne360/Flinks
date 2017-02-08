@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 				format.js
 			end
 		else
-		redirect_to link_path(comment.link)
+			redirect_to link_path(comment.link)
 		end
 	end
 

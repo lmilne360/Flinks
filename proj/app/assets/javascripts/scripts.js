@@ -1,11 +1,4 @@
 $(function() {
-
-    $('.link').each(function(index){
-      if (localStorage['favourite' + index] == 'fave') {
-        $(this).addClass('fave');
-      }
-    });
-
     addComment();
     toggleComments();
     toggleFave();

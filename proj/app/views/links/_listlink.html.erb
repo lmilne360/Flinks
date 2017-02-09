@@ -14,14 +14,4 @@
 	<%= link.get_downvotes.size %>
 	<% end %>
 	<div class="btn btn-secondary btn-sm", btn-id=<%= link.id %> > Fave</div>
-
-
 </h2>
-
-<script type="text/javascript">
-$('.link').each(function(index){
-	if (localStorage['favourite' + index] == 'fave') {
-		$(this).addClass('fave');
-	}
-});
-</script>

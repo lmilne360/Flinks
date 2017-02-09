@@ -23,12 +23,12 @@ function toggleComments() {
 function toggleFave() {
   $(document).on("click", ".link div.btn", function(e){
     var item = $(this).parent().closest('div');
-    var index = $('.link').index(item);
+    var id = $(this).attr('btn-id');
     item.toggleClass('fave');
     if (item.hasClass('fave')) {
-      localStorage.setItem('favourite' + index, 'fave');
+      localStorage.setItem('favourite' + id, 'fave');
     } else {
-      localStorage.removeItem('favourite' + index);
+      localStorage.removeItem('favourite' + id);
     }
 
   });

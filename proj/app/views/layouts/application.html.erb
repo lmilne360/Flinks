@@ -25,7 +25,8 @@
 
         <script type="text/javascript">
         $('.link').each(function(index){
-        	if (localStorage['favourite' + index] == 'fave') {
+           var id = $(this).find('div.btn').attr('btn-id')
+        	if (localStorage['favourite' + id] == 'fave') {
         		$(this).addClass('fave');
         	}
         });

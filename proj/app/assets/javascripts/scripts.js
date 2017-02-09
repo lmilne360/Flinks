@@ -1,5 +1,11 @@
 $(function() {
 
+    $('.link').each(function(index){
+      if (localStorage['favourite' + index] == 'fave') {
+        $(this).addClass('fave');
+      }
+    });
+
     addComment();
     toggleComments();
     toggleFave();
@@ -23,6 +29,14 @@ function toggleComments() {
 
 function toggleFave() {
   $(document).on("click", ".link div.btn", function(e){
-    $(this).parent().closest('div').toggleClass('fave');
+    var item = $(this).parent().closest('div');
+    var index = $('.link').index(item);
+    item.toggleClass('fave');
+    if (item.hasClass('fave')) {
+      localStorage.setItem('favourite' + index, 'fave');
+    } else {
+      localStorage.removeItem('favourite' + index);
+    }
+
   });
 }

@@ -30,6 +30,12 @@
         		$(this).addClass('fave');
         	}
         });
+        // Add this to on button click
+        $('.fave-btn').click(function(event){
+          event.preventDefault();
+          $('.link').filter(':not(.fave)').toggle();
+        })
+
         </script>
     </body>
 </html>

@@ -11,17 +11,12 @@ function addComment() {
         var values = $(this).serialize();
         var posting = $.post("/comments.js", values);
         // get template
-        var templateScript = $("#comment-template").html();
-
-        //compile templateScript
-        var template = Handlebars.compile(templateScript);
 
         posting.done(function(data){
-          console.log(data);
-          //pass data to template
-          var commentHTML = template(data);
+
+          comment = new Comment(data);
           //Add the compiled html to pahe
-          $('#comments').append(commentHTML);
+          $('#comments').append(comment.render());
 
           //Increase comment counter
           var size = parseInt($('#comment-size').html());

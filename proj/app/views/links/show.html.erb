@@ -29,3 +29,15 @@
 		<%= f.submit "Add Comment", class: "btn btn-secondary"%>
 		<% end %>
 </div>
+
+<script type="text/x-handlebars-template" id="comment-template">
+	
+	<div class="comment">
+		<p class="lead">{{body}}
+			<small>Submitted by
+				<a href="/users/" + {{user_id}}>{{commenter}}</a>
+			</small>
+		</p>
+	</div>
+
+</script>

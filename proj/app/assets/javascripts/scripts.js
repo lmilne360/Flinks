@@ -22,9 +22,20 @@ function addComment() {
           var commentHTML = template(data);
           //Add the compiled html to pahe
           $('#comments').append(commentHTML);
+
+          //Increase comment counter
+          var size = parseInt($('#comment-size').html());
+          size ++;
+          $('#comment-size').html(size);
+
+          //reset form submit button
+          $('#new_comment input[type=submit]').attr('disabled', false);
+
+          $('#comment_body').val('');
         });
     });
 }
+
 
 function toggleComments() {
   $(document).on("click",'#comments-toggle', function(e){

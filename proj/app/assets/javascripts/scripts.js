@@ -10,8 +10,18 @@ function addComment() {
         e.preventDefault();
         var values = $(this).serialize();
         var posting = $.post("/comments.js", values);
+        // get template
+        var templateScript = $("#comment-template").html();
+
+        //compile templateScript
+        var template = Handlebars.compile(templateScript);
+
         posting.done(function(data){
           console.log(data);
+          //pass data to template
+          var commentHTML = template(data);
+          //Add the compiled html to pahe
+          $('#comments').append(commentHTML);
         });
     });
 }

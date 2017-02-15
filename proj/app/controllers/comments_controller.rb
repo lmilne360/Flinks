@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 		if @comment.save
 			render json: @comment.to_json(methods: :commenter)
 		else
-			redirect_to link_path(comment.link)
+			redirect_to link_path(@comment.link), alert: @comment.errors.full_messages.to_sentence
 		end
 	end
 

@@ -10,6 +10,9 @@ function addComment() {
         e.preventDefault();
         var values = $(this).serialize();
         var posting = $.post("/comments.js", values);
+        posting.done(function(data){
+          console.log(data);
+        });
     });
 }
 

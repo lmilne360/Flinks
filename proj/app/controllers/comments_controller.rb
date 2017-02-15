@@ -4,10 +4,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.new(comment_params)
 		@comment.user_id = current_user.id
 		if @comment.save
-			respond_to do |format|
-				format.html {redirect_to @comment.link, notice: "Comment sucessfully created"}
-				format.js
-			end
+			render json: @comment
 		else
 			redirect_to link_path(comment.link)
 		end

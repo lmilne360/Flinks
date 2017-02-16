@@ -18,8 +18,12 @@ class CommentsController < ApplicationController
 
 	def destroy
 		comment = Comment.find(params[:id])
-		comment.destroy
-		redirect_to comment.link
+		if comment.user == current_user || comment.link.user == current_user
+			comment.destroy
+		  redirect_to comment.link
+		else
+		  redirect_to comment.link, alert: "You are not authorized to delete this comment"
+		end
 	end
 
 

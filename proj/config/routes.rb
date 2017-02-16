@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :links, only: [:index, :show] do
+    resources :comments, only: [:index]
     member do
       put "like",    to: "links#upvote"
       put "dislike", to: "links#downvote"

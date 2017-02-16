@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   	end
     #devise_for :users,
 
-  resources :comments
+  resources :comments, only: [:create, :destroy]
 
   resources :users, only: [:show] do
     resources :links, except: [:index, :show]

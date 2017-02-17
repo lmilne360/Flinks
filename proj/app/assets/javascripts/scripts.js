@@ -68,10 +68,9 @@ function nxtLink() {
 
 function appendNextLink(id) {
     $.get(`/links/${id}.json`, function(data) {
-      debugger
-        data = $(data).find('.link').html();
+      let linkHTML = new Link(data).render();
 
-        $('.link').empty().append(data);
+        $('.link').html(linkHTML);
         appendComment();
     });
 }

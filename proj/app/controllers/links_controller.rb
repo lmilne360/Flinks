@@ -8,6 +8,13 @@ class LinksController < ApplicationController
 	def show
 		#store id collection on show page
 		@ids = Link.ids
+
+		respond_to do |format|
+		 if @link
+			 format.html
+			 format.json {render json: @link}
+		 end
+	 end
 	end
 
 	def new

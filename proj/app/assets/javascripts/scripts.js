@@ -52,3 +52,15 @@ function toggleFave() {
 
   });
 }
+
+function nxtLink() {
+    let id = $('#comment_link_id').val();
+    let nxtID = parseInt(id) + 1;
+
+    $.get(`/links/${nxtID}`, function(data) {
+        data = $(data).find('.link').html();
+
+        $('.link').empty().append(data);
+        appendComment();
+    });
+}

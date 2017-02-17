@@ -64,3 +64,13 @@ function nxtLink() {
         appendComment();
     });
 }
+
+function appendComment() {
+    let id = $('#comment_link_id').val();
+    $.get('/links/' + id + '/comments', function(data) {
+        $(data).each(function() {
+            var comment = new Comment(this);
+            $('#comments').append(comment.render());
+        });
+    });
+}

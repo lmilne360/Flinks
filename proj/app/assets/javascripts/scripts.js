@@ -57,13 +57,13 @@ function nxtLink() {
     //var all_ids = $('.linkIDs').data('ids');
     let id = $('#comment_link_id').val();
     id = parseInt(id);
-    index = all_ids.indexOf(id);
-      if (index >= 0 && index < all_ids.length - 1) {
+    let index = all_ids.indexOf(id);
+    if (index >= 0 && index < all_ids.length - 1) {
         let nxtID = all_ids[index + 1];
         appendNextLink(nxtID);
-      } else {
+    } else {
         alert("That's all folks!");
-      }
+    }
 }
 
 function appendNextLink(id) {

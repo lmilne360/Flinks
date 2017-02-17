@@ -18,11 +18,6 @@
 			<span id="comments-toggle">Comments</span>
 			<br>
 			<div id="comments">
-				<!--
-				<% @link.comments.each do |comment| %>
-				<%= render comment %>
-				<% end %>
-			-->
 			</div>
 
 			<%= form_for @link.comments.build do |f| %>
@@ -37,6 +32,6 @@
 		<% end %>
 
 		<script type="text/javascript">
-		var all_ids = $('.linkIDs').data('ids');
+			var all_ids = $('.linkIDs').data('ids');
 			appendComment()
 		</script>

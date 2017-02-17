@@ -37,11 +37,5 @@
 		<% end %>
 
 		<script type="text/javascript">
-			var id = $('.linkID').data('id')
-			$.get('/links/' + id + '/comments.js', function (data) {
-				$(data).each(function () {
-					var comment = new Comment(this)
-					$('#comments').append(comment.render())
-				})
-			});
+			appendComment()
 		</script>

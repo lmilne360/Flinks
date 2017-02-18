@@ -13,7 +13,7 @@ class Link < ApplicationRecord
 	end
 
 	def all_tags
-		self.tags.map{|t| t.name}.join(", ")
+		self.tags.map{|t| t.name}.join(" ")
 	end
 
 	def owner
@@ -23,7 +23,7 @@ class Link < ApplicationRecord
 	def self.search(term)
 		links = Tag.find_by_name(term).try(:links)
   		if links.nil? || links.empty?
-    		self.order('id DESC') 
+    		self.order('id DESC')
     	else
     		links
   		end

@@ -14,7 +14,7 @@ function addComment() {
 
         posting.done(function(data) {
 
-            comment = new Comment(data);
+            comment = new Comment(data, current_user_id);
             //Add the compiled html to pahe
             $('#comments').append(comment.render());
 

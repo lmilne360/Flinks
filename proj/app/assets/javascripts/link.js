@@ -1,12 +1,12 @@
 class Link{
   constructor(attributes){
-  this.id = attributes.id
+  this.id = attributes.id;
   this.title = attributes.title;
   this.user_id = attributes.user_id;
   this.url = attributes.url;
   this.owner = attributes.owner;
   this.time = attributes.created_at;
-  this.all_tags = attributes.all_tags
+  this.all_tags = attributes.all_tags;
 }
 
   render() {

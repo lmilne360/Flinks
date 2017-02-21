@@ -69,9 +69,16 @@ function nxtLink() {
 function appendNextLink(id) {
     $.getJSON(`/links/${id}`, function(data) {
       let linkHTML = new Link(data).render();
+      let current_user_id = parseInt($('.currentID').data('cid'));
 
-        $('.link').html(linkHTML);
-        appendComment();
+        $('.link').html(linkHTML, current_user_id);
+
+        // less requests
+        $(data.comments).each(function(){
+          var comment = new Comment(this, current_user_id);
+          $('#comments').append(comment.render());
+        });
+        //appendComment();
     });
 }
 

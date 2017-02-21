@@ -8,7 +8,7 @@ class LinksController < ApplicationController
 	def show
 		#store id collection on show page
 		@ids = Link.ids
-
+		 current_user ? @cid = current_user.id : @cid = 0
 		respond_to do |format|
 		 if @link
 			 format.html

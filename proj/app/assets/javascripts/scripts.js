@@ -77,9 +77,10 @@ function appendNextLink(id) {
 
 function appendComment() {
     let id = $('#comment_link_id').val();
+    let current_user_id = parseInt($('.currentID').data('cid'));
     $.get('/links/' + id + '/comments', function(data) {
         $(data).each(function() {
-            var comment = new Comment(this);
+            var comment = new Comment(this, current_user_id);
             $('#comments').append(comment.render());
         });
     });

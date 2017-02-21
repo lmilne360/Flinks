@@ -70,13 +70,6 @@ function appendNextLink(id) {
     $.getJSON(`/links/${id}`, function(data) {
       let linkHTML = new Link(data, current_user_id).render();
         $('.link').html(linkHTML);
-/*
-        // less requests
-        $(data.comments).each(function(){
-          var comment = new Comment(this, current_user_id);
-          $('#comments').append(comment.render());
-        });
-        //appendComment(); */
     });
 }
 

@@ -69,9 +69,7 @@ function nxtLink() {
 function appendNextLink(id) {
     $.getJSON(`/links/${id}`, function(data) {
       let linkHTML = new Link(data).render();
-      let current_user_id = parseInt($('.currentID').data('cid'));
-
-        $('.link').html(linkHTML, current_user_id);
+        $('.link').html(linkHTML);
 
         // less requests
         $(data.comments).each(function(){
@@ -84,7 +82,6 @@ function appendNextLink(id) {
 
 function appendComment() {
     let id = $('#comment_link_id').val();
-    let current_user_id = parseInt($('.currentID').data('cid'));
     $.get('/links/' + id + '/comments', function(data) {
         $(data).each(function() {
             var comment = new Comment(this, current_user_id);

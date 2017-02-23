@@ -8,26 +8,29 @@ $(function() {
 function addComment() {
     $(document).on("submit", '#new_comment', function(e) {
         e.preventDefault();
+
         var values = $(this).serialize();
-        var posting = $.post("/comments.json", values);
-        // get template
+        if (!$('#comment_sbody').text().trim()) {
+          
+          var posting = $.post("/comments.json", values);
+          posting.done(function(data) {
 
-        posting.done(function(data) {
+              comment = new Comment(data, current_user_id);
+              //Add the compiled html to pahe
+              $('#comments').append(comment.render());
 
-            comment = new Comment(data, current_user_id);
-            //Add the compiled html to pahe
-            $('#comments').append(comment.render());
+              //Increase comment counter
+              var size = parseInt($('#comment-size').html());
+              size++;
+              $('#comment-size').html(size);
 
-            //Increase comment counter
-            var size = parseInt($('#comment-size').html());
-            size++;
-            $('#comment-size').html(size);
 
-            //reset form submit button
-            $('#new_comment input[type=submit]').attr('disabled', false);
 
-            $('#comment_body').val('');
-        });
+              $('#comment_body').val('');
+          });
+        }
+
+
     });
 }
 

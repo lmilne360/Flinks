@@ -9,7 +9,7 @@ function addComment() {
     $(document).on("submit", '#new_comment', function(e) {
         e.preventDefault();
         var values = $(this).serialize();
-        var posting = $.post("/comments.js", values);
+        var posting = $.post("/comments.json", values);
         // get template
 
         posting.done(function(data) {

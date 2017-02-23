@@ -6,12 +6,15 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = Comment.new(comment_params)
-		@comment.user_id = current_user.id
-		if @comment.save
-			render json: @comment.to_json(methods: :commenter)
-		else
-			redirect_to link_path(@comment.link), alert: @comment.errors.full_messages.to_sentence
+			@comment = Comment.new(comment_params)
+			@comment.user_id = current_user.id
+		respond_to do |format|
+			if @comment.save
+				format.html
+				format.json{ render json: @comment.to_json(methods: :commenter) }
+			else
+				redirect_to link_path(@comment.link), alert: @comment.errors.full_messages.to_sentence
+			end
 		end
 	end
 

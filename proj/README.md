@@ -3,7 +3,7 @@
 
 ## About
 
-This project, RPL, was written and designed using the Rails 5 framework and bootstrap 4. 
+This project, Flinks, was written and designed using the Rails 5 framework and bootstrap 4. 
 
 Users are able to view links posted by themselves and other users
 

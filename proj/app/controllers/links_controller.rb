@@ -6,6 +6,15 @@ class LinksController < ApplicationController
 	end
 
 	def show
+		#store id collection on show page
+		@ids = Link.ids
+		 current_user ? @cid = current_user.id : @cid = 0
+		respond_to do |format|
+		 if @link
+			 format.html
+			 format.json {render json: @link}
+		 end
+	 end
 	end
 
 	def new
@@ -60,6 +69,6 @@ class LinksController < ApplicationController
 		def set_link
 			@link = Link.find(params[:id])
 		  rescue ActiveRecord::RecordNotFound
-			redirect_to root_url, alert: "Record not found." 
+			redirect_to root_url, alert: "Record not found."
 		end
 end
